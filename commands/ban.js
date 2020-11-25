@@ -1,10 +1,11 @@
 var Discord = require('discord.js');
 
 exports.run = async(client, msg, args) => {
-    if(!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('You can\'t use that!');
+    if(!msg.member.hasPermission('BAN_MEMBERS')) return msg.reply('**❌ERROR**
+You don't have premission to use that command!');
 
     var user = msg.mentions.users.first();
-    if(!user) return msg.reply('You didn\'t mention anyone!');
+    if(!user) return msg.reply('**❌ERROR**, please mention someone!');
 
     var member;
 
@@ -15,7 +16,7 @@ exports.run = async(client, msg, args) => {
     }
 
     if(member){
-        if(member.hasPermission('MANAGE_MESSAGES')) return msg.reply('You cannot ban this person!');
+        if(member.hasPermission('MANAGE_MESSAGES')) return msg.reply('Sorry, You don't have permission to use this command!');
     }
 
     var reason = args.splice(1).join(' ');
